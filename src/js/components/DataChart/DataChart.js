@@ -575,6 +575,7 @@ const DataChart = forwardRef(
           pad={!horizontal && offsetPad ? { ...pad, end: offsetPad } : pad}
           renderValue={renderValue}
           serie={axis.x.property && getPropertySeries(axis.x.property)}
+          size={axis.x?.size}
           style={
             offsetPad
               ? {
@@ -601,6 +602,7 @@ const DataChart = forwardRef(
           pad={horizontal && offsetPad ? { ...pad, bottom: offsetPad } : pad}
           renderValue={renderValue}
           serie={axis.y.property && getPropertySeries(axis.y.property)}
+          size={axis.y?.size}
           thickness={horizontal ? segmentThickness : undefined}
           theme={theme}
         />

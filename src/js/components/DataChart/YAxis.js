@@ -2,6 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { edgeToNum } from '../../utils';
 import { Box } from '../Box';
 import { showInUnits } from './utils';
+import { Text } from '../Text';
 
 const onlyVerticalPad = (pad) => {
   let result;
@@ -18,7 +19,10 @@ const onlyVerticalPad = (pad) => {
 };
 
 const YAxis = forwardRef(
-  ({ values, pad: padProp, renderValue, serie, theme, thickness }, ref) => {
+  (
+    { values, pad: padProp, renderValue, serie, theme, thickness, size },
+    ref,
+  ) => {
     const { render, suffix } = serie || {};
 
     // pad to the edge of the thickness, for when padding is more than half
@@ -74,7 +78,7 @@ const YAxis = forwardRef(
               align="end"
               {...labelContainerProps}
             >
-              {content}
+              <Text size={size}>{content}</Text>
             </Box>
           );
         })}

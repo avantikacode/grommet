@@ -2,6 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { edgeToNum } from '../../utils';
 import { Box } from '../Box';
 import { showInUnits } from './utils';
+import { Text } from '../Text';
 
 const onlyHorizontalPad = (pad) => {
   let result;
@@ -21,7 +22,16 @@ const onlyHorizontalPad = (pad) => {
 
 const XAxis = forwardRef(
   (
-    { values, pad: padProp, renderValue, serie, theme, thickness, ...rest },
+    {
+      values,
+      pad: padProp,
+      renderValue,
+      serie,
+      theme,
+      thickness,
+      size,
+      ...rest
+    },
     ref,
   ) => {
     const { render, suffix } = serie || {};
@@ -82,7 +92,7 @@ const XAxis = forwardRef(
           return (
             // eslint-disable-next-line react/no-array-index-key
             <Box key={i} {...labelContainerProps}>
-              {content}
+              <Text size={size}>{content}</Text>
             </Box>
           );
         })}
